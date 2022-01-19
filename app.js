@@ -1,5 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
+// import { initializeApp } from './firebase/app';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,9 +18,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-import{getDatabase, ref, get, set, child, update, remove}
+import{getDatabase, ref, get, set, child, update, remove, onValue, onChildAdded, onChildChanged, onChildRemoved}
 from "https://www.gstatic.com/firebasejs/9.6.3/firebase-database.js";
 
+;
 const db = getDatabase();
 
 // References
@@ -31,6 +34,7 @@ var insBtn = document.getElementById("Insbtn");
 var selBtn = document.getElementById("Selbtn");
 var updBtn = document.getElementById("Updbtn");
 var delBtn = document.getElementById("Delbtn");
+var showall = document.getElementById("ShowAll");
 
 // insert function
 function insertData(){
@@ -39,28 +43,40 @@ function insertData(){
         RollNO: rollbox.value,
         Section: secbox.value,
         Gender: genbox.value
+        
     })
     .then(()=>{
-        alert("data stored successfully");
+        location.reload(); 
+        // alert("data stored successfully");
+       
     })
     .catch((error)=>{
         alert("unsccessful, error" + error);
     })
+   
 }
 
 
 // SELECT DATA 
 function selectData(){
-   
+    
     const dbref = ref(db);
     get(child(dbref,"TheStudents/"+rollbox.value)).then((snapshot) =>{
         if(snapshot.exists()){
             namebox.value = snapshot.val().NameOfStd;
             secbox.value = snapshot.val().Section;
-            genbox.value = snapshot.val().Gender;                      
+            genbox.value = snapshot.val().Gender;  
+
+            let name = snapshot.val().NameOfStd;
+            let rollNo = rollbox.value
+            let sec = snapshot.val().Section;
+            let gen = snapshot.val().Gender;
+
+            showIteminList(name, rollNo,sec,gen)
         }
         else{
             alert("No data dound");
+            
         }
     })
     .catch((error) =>{
@@ -77,7 +93,9 @@ function selectData(){
         Gender: genbox.value
     })
     .then(()=>{
-        alert("data update successfully");
+        // alert("data update successfully");
+        location.reload();
+        
     })
     .catch((error)=>{
         alert("unsccessful, error" + error);
@@ -90,14 +108,79 @@ function deleteData(){
     remove(ref(db,"TheStudents/"+rollbox.value))
     .then(()=>{
         alert("data delete successfully");
+        location.reload();
     })
     .catch((error)=>{
         alert("unsccessful, error" + error);
     })
 }
 
+let stdNo = 0;
+function removeAll(){
+    document.getElementById("lists").innerHTML = "";
+}
+function showIteminList(name, rollNo,sec,gen){
+    removeAll()
+    addItemToList(name, rollNo,sec,gen)
+}
+function addItemToList(name, rollNo,sec,gen){
+    console.log(name,rollNo,sec,gen)
+    var ul = document.getElementById('lists');
+    var header = document.createElement('h2');
+
+    var _name = document.createElement('li');
+    var _rollNo = document.createElement('li');
+    var _sec = document.createElement('li');
+    var _gen = document.createElement('li');
+
+    header.innerHTML = 'Student-'+(++stdNo);
+
+
+    // _name.innerHTML = 'Name';
+    // _rollNo.innerHTML = 'Name';
+    // _sec.innerHTML = 'Name';
+    // _gen.innerHTML = 'Name';
+
+    _name.innerHTML = 'Name: '+name;
+    _rollNo.innerHTML = 'RollNO: '+rollNo;
+    _sec.innerHTML = 'Section: '+sec;
+    _gen.innerHTML = 'Gender : '+gen;
+    
+    ul.appendChild(header);
+    ul.appendChild(_rollNo);
+    ul.appendChild(_name);    
+    ul.appendChild(_sec);
+    ul.appendChild(_gen);
+
+}
+
+
+function FetchAllData(){
+    
+    const dbRef = ref(db, 'TheStudents/');
+    onValue(dbRef, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;            
+
+            let name = childSnapshot.val().NameOfStd;
+            let rollNo = childSnapshot.val().RollNO;
+            let sec = childSnapshot.val().Section;
+            let gen = childSnapshot.val().Gender;
+            
+
+            addItemToList(name, rollNo,sec,gen)
+            // window.addEventListener('load',FetchAllData)
+        });
+    }, {
+    onlyOnce: true
+    });
+    
+}
 // assign to btn
 insBtn.addEventListener('click',insertData);
 selBtn.addEventListener('click',selectData);
 updBtn.addEventListener('click',updateData);
 delBtn.addEventListener('click',deleteData);
+showall.addEventListener('click',FetchAllData);
+
+window.addEventListener('load',FetchAllData)
