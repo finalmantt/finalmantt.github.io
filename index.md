@@ -8,6 +8,11 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 Code:
 [linaersearch](https://finalmantt.github.io/linearsearch.html)
 
+
+### Knock Knock
+Code:
+[linaersearch](https://finalmantt.github.io/knock.html)
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
