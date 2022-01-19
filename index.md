@@ -11,7 +11,7 @@ Code:
 
 ### Knock Knock
 Code:
-[linaersearch](https://finalmantt.github.io/knock.html)
+[Knock Knock](https://finalmantt.github.io/knock.html)
 
 ### Markdown
 
