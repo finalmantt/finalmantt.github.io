@@ -6,9 +6,16 @@
         <meta name="viewport content="width=device-width, initial-scale=1.0">
         <title>Read, writh, Update, Delete data</title>
         <style>label{display: inline-block; width:80px}</style>
-        <link rel="shortcut icon" href="#">
+        <!-- <link rel="shortcut icon" href="#"> -->
     </head>
     <body>
+        <h1>Welcom to Knock Knock version 0.0.1</h1>
+        <div>1. INSERT: input your information, then click INSERT</div>
+        <div>2. SELECT: input the RollNo, then click SELECT. The information will show below. </div>
+        <div>3. UPDATE: Edit your information, then click UPDATE</div>
+        <div>3. DELETE: input the RollNO, then click DELETE</div>
+        <div>4. ShowALL: Click ShowALL to see all data in the database</div>
+        
         <label>Name</label><input id="Namebox" type="text">
         <label>RollNo</label><input id="Rollbox" type="text">
         <label>Section</label><input id="Secbox" type="text">
@@ -22,8 +29,11 @@
         <button id="Selbtn">SELECT</button>
         <button id="Updbtn">UPDATE</button>
         <button id="Delbtn">DELETE</button>
+        <button id="ShowAll">ShowALL</button>
+        
         <!-- IMPORT+CONFIGURATION -->
-       
+        <ul id = "lists">
+        </ul>
         <script type="module" src="app.js" >
       
           </script>
