@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Pine</title>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div>First indicator</div>
+    <select name="indy1" id="indy1">
+      <option value="sma">sma</option>
+      <option value="ema">ema</option>
+      <option value="open">open</option>
+      <option value="high">high</option>
+    </select>
+
+    <div>Second indicator</div>
+    <select name="indy2" id="indy2">
+      <option value="sma">sma</option>
+      <option value="ema">ema</option>
+      <option value="open">open</option>
+      <option value="high">high</option>
+    </select>
+
+    <button id="btnGo" onclick="createPine()">My Pine</button>
+    <div>My pine</div>
+    <textarea
+      name="
+    "
+      id="outText"
+      cols="100"
+      rows="20"
+    ></textarea>
+    <button onclick="myFunction()">Copy text</button>
+    <div id="output" class="output"></div>
+  </body>
+</html>
