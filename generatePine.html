@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Pine</title>
+    <script src="generatePine.js"></script>
+  </head>
+  <body>
+    <div>First indicator</div>
+    <select name="indy1" id="indy1">
+      <option value="sma">sma</option>
+      <option value="ema">ema</option>
+      <option value="open">open</option>
+      <option value="high">high</option>
+    </select>
+
+    <div>Second indicator</div>
+    <select name="indy2" id="indy2">
+      <option value="sma">sma</option>
+      <option value="ema">ema</option>
+      <option value="open">open</option>
+      <option value="high">high</option>
+    </select>
+
+    <button id="btnGo" onclick="createPine()">My Pine</button>
+    <div>My pine</div>
+    <textarea
+      name="
+    "
+      id="outText"
+      cols="100"
+      rows="20"
+    ></textarea>
+    <button onclick="myFunction()">Copy text</button>
+
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_599f8"></div>
+      <div class="tradingview-widget-copyright">
+        <a
+          href="https://www.tradingview.com/symbols/NASDAQ-AAPL/"
+          rel="noopener"
+          target="_blank"
+          ><span class="blue-text">AAPL Chart</span></a
+        >
+        by TradingView
+      </div>
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/tv.js"
+      ></script>
+      <script type="text/javascript">
+        new TradingView.widget({
+          width: 980,
+          height: 610,
+          symbol: "NASDAQ:AAPL",
+          interval: "D",
+          timezone: "Etc/UTC",
+          theme: "light",
+          style: "1",
+          locale: "en",
+          toolbar_bg: "#f1f3f6",
+          enable_publishing: false,
+          allow_symbol_change: true,
+          container_id: "tradingview_599f8",
+        });
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
+  </body>
+</html>
