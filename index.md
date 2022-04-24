@@ -15,7 +15,7 @@ Code:
 
 ### My Pine
 Code:
-[My Pine](https://finalmantt.github.io/trading.html)
+[My Pine](https://finalmantt.github.io/generatePine.html)
 
 ### Markdown
 
