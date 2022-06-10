@@ -1,7 +1,8 @@
 ## Welcome to Dr.Tanapon Tantisripreecha's GitHub resume.
 
-This is [my GitHub](https://github.com/finalmantt/finalmantt.github.io/edit/main/index.md). Please feel free to look around.
-
+This is [my GitHub](https://github.com/finalmantt/finalmantt.github.io/edit/main/index.md).
+This is [my GitHub Website](https://finalmantt.github.io/). 
+Please feel free to look around.
 ### Basic information 
 
 E-mail: finalmantt@gmail.com
