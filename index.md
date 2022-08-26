@@ -47,6 +47,8 @@ Address: USA
 ### Linear search
 Code:
 [linaersearch](https://finalmantt.github.io/linearsearch.html)
+[linaersearch](https://finalmantt.github.io/linearsearch/index.html)
+
 
 
 ### Knock Knock
