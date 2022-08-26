@@ -1,0 +1,37 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  /*linear search text  */
+  .header {
+    font-size: 35px;
+    text-align: center;
+  }
+  /* back ground */
+  #array {
+    background-color: rgb(255, 255, 255);
+    height: 305px;
+    width: 598px;
+    margin: auto;
+    position: relative;
+    margin-top: 64px;
+  }
+  /* bar 
+    we knoe width 
+    we don't know high so we use js to assign them */
+  .block {
+    width: 28px;
+    background-color: #5b9568;
+    position: absolute;
+    bottom: 0px;
+    transition: 0.2s all ease;
+  }
+  /* number show on the top of bar */
+  .block_id {
+    position: absolute;
+    color: black;
+    margin-top: -20px;
+    width: 100%;
+    text-align: center;
+  }
